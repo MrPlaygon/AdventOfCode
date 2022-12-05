@@ -1,5 +1,3 @@
-#oben = hinten im array
-# Day 5
 towers =[[]]
 
 def divide_list(l, n):
