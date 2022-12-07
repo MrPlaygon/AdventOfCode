@@ -95,37 +95,38 @@ print(root.to_string(0))
 
 # Part 1
 dirs = [root]
-dirs.extend(root.get_dirs(True))
+dirs.extend(root.get_dirs(True))  # List of all directories
 print("List: ", len(dirs))
-dirs = list(filter(lambda x: x.get_size() < 100000, dirs))
+dirs = list(filter(lambda x: x.get_size() < 100000, dirs))  # Filter directories by size
 print("List: ", len(dirs))
 
 sum = 0
-for i in dirs:
+for i in dirs:  # calculate sum of filtered dirs
     sum += i.get_size()
 print("Sum Part 1: ", sum)
 
 # Part 2
-total_space = 70000000
-unused_needed = 30000000
+total_space = 70000000  # given values
+unused_needed = 30000000  # given values
+
+# calculate some values
 max_possible_in_use = total_space - unused_needed
 space_used = root.get_size()
 space_to_delete = space_used - max_possible_in_use
 print("Space to delete: ", space_to_delete)
+
+# list directories
 dirs = [root]
 dirs.extend(root.get_dirs(True))
 print("List: ", len(dirs))
-dirs = list(filter(lambda x: x.get_size() >= space_to_delete, dirs))
-dirs.sort(key=lambda x: x.get_size())
+dirs = list(filter(lambda x: x.get_size() >= space_to_delete, dirs))  # filter by size we need to free
+dirs.sort(key=lambda x: x.get_size())  # sort by size
 print(dirs)
 print("List: ", len(dirs))
-print("Part 2 : ", dirs[0])
+print("Part 2 : ", dirs[0])  # first one is the smallest one we can delete to get enough free space
 
 
-
-
-
-
+# Measuring runtime for fun
 def with_lambda():
     dirs = [root]
     dirs.extend(root.get_dirs(True))
