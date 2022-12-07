@@ -1,3 +1,5 @@
+# Part 1
+
 # max = 0
 # current = 0
 # with open("01.txt") as file:
@@ -10,7 +12,8 @@
 #         else:
 #             current += int(line)
 #     print("Done:" + str(max))
-    
+
+# Part 2    
 
 calories = []
 current = 0
